@@ -1,29 +1,26 @@
-from personagem import Personagem
+from character import Character
 
 
-class Guerreiro(Personagem):
-    def __init__(self, nome, hp, energia, lv, forca=5):
-        super().__init__(self, nome, lv, hp, energia)
+class Guerreiro(Character):
+    def __init__(self, nome, attack, defense,maxStaminaPoints,maxHeratPoints, rage=0):
+        super().__init__(self, nome, attack, defense, maxStaminaPoints,maxHeratPoints)
+        self.__rage = rage
+        self.strenght = 15
 
-        self.forca = forca
-        self.ataque = self.forca + 10
+    def takeDamage(self, damage):
+        self.__heartPoints -= damage - self.__defense
+        self.__rage =+ 5
 
-    def atacar(self):
-        if self.energia > 5:
-            print(f"{self.nome} atacou e causou {self.ataque} de dano")
-            self.energia -= 10
+    def specialAttack(self, other):
+        if self.__rage > 25:
+            other.takeDamage(self.__attack + self.strenght)
         else:
-            print(f"{self.nome} tentou atacar...\nFalhou pois faltou energia")
-    def auto_cura(self):
-        if self.energia > 50 and self.hp > 0:
-            print(f"{self.name} usou auto cura!\nRegenerou 20 pontos de vida")
-            self.hp += 20
-            self.energia -= 50
-        else:
-            print(f"{self.name} tentou recuperar vida...\nFalhou pois faltou energia")
-    def resistencia(self):
-        if self.hp > 0 and self.energia > 30:
-            print(f"{self.name} se preparou para o proxímo ataque...")
+            print(f"{self.name} lacked the rage...")
+    def attack(self, other):
+        other.takeDamage(self.__attack + (self.strenght/3))
+
+
+
 
 
 
