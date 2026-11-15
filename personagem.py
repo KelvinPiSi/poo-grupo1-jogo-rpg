@@ -1,5 +1,5 @@
 class Personagem :
-    def __init__(self,nome,lv=1,hp=100,energia=100):
+    def __init__(self, nome, energia1, lv=1, hp=100, energia=100):
         self.nome = nome
         self.__hp = hp
         self.__energia = energia
@@ -8,6 +8,7 @@ class Personagem :
     @property
     def hp(self):
         return self.hp
+
 
     @property
     def energia(self):
