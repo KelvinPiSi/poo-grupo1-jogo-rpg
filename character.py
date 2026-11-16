@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-class Character :
+
+class Character:
     def __init__(self, name, attack, defense, maxHeartPoints=100, maxStaminaPoints=100):
         self.name = name
         self.role = "none"
@@ -20,22 +21,22 @@ class Character :
             self.__heartPoints -= 1
         else:
             self.__heartPoints -= damage - self.__defense
-        
+
     def heal(self, value):
         self.__heartPoints += value
 
     def attack(self, other):
         other.takeDamage(self.__attack)
-        
+
     def levelUp(self):
-        self.__level += 1 #++ n funca
+        self.__level += 1  # ++ n funca
         self.__maxHeartPoints *= 1.05
         self.__heartPoints = self.__maxHeartPoints
         self.__maxStaminaPoints *= 1.05
         self.__staminaPoints = self.__maxStaminaPoints
         self.__attack *= 1.1
         self.__defense *= 1.1
-    
+
     @property
     def getHeartPoints(self):
         return self.__heartPoints
