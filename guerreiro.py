@@ -2,30 +2,22 @@ from character import Character
 
 
 class Guerreiro(Character):
-    def __init__(self, nome, attack, defense,maxStaminaPoints,maxHeratPoints, rage=0):
-        super().__init__(self, nome, attack, defense, maxStaminaPoints,maxHeratPoints)
-        self.__rage = rage
-        self.strenght = 15
+    def __init__(self, name, attack, defense, maxStaminaPoints, maxHeartPoints):
+        super().__init__(name, attack, defense, maxStaminaPoints, maxHeartPoints)
+        self.role = "Guerreiro"
+
+    def __str__(self):
+        return super().__str__()
 
     def takeDamage(self, damage):
-        self.__heartPoints -= damage - self.__defense
-        self.__rage =+ 5
+        super().takeDamage(damage)
+        print(f"{self.name} foi infligido com {damage} de dano")
 
-    def specialAttack(self, other):
-        if self.__rage > 25:
-            other.takeDamage(self.__attack + self.strenght)
-        else:
-            print(f"{self.name} lacked the rage...")
     def attack(self, other):
-        other.takeDamage(self.__attack + (self.strenght/3))
+        print(f"{self.name} desferiu diversos golpes de machado em seu oponente")
 
 
-
-
-
-
-
-
-
-
-
+warrior = Guerreiro("Aragon", attack=25, defense=20, maxStaminaPoints=150, maxHeartPoints=200)
+warrior.attack(15)
+print(warrior.__str__())
+warrior.takeDamage(25)
