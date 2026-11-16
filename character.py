@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 class Character :
-    def __init__(self, name, attack, defense, maxHeartPoints=100, maxStaminaPoints=100, ):
+    def __init__(self, name, attack, defense, maxHeartPoints=100, maxStaminaPoints=100):
         self.name = name
         self.role = "none"
         self.__heartPoints = maxHeartPoints
