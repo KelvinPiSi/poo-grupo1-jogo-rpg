@@ -14,4 +14,5 @@ class Guerreiro(Character):
         print(f"{self.name} foi infligido com {damage} de dano")
 
     def attack(self, other):
+        super().attack(other)
         print(f"{self.name} desferiu diversos golpes de machado em seu oponente")

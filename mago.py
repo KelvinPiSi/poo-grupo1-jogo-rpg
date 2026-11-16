@@ -17,7 +17,12 @@ class Mago(Character):
     def status_mana(self):
         print(f"Mana atual: {self._mana}")
 
+    def takeDamage(self, damage):
+        super().takeDamage(damage)
+        print("Nosso querido mago foi atingido em ", damage, " de dano")
+
     def attack(self, other):
+        print(f"{self.name} usou magiazinha!")
         if self._mana >= 10:
             self._mana -= 10
             other.takeDamage(self.getAttack + 25)
