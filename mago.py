@@ -15,3 +15,10 @@ class Mago(Character):
 
     def status_mana(self):
         print(f"Mana atual: {self._mana}")
+
+    def attack(self, other):
+        if self._mana >= 10:
+            self._mana -= 10
+            other.takeDamage(self.getAttack + 25)
+        else:
+            other.takeDamage(self.getAttack + 5)
