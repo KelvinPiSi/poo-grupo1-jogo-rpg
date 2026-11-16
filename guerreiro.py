@@ -15,4 +15,3 @@ class Guerreiro(Character):
 
     def attack(self, other):
         print(f"{self.name} desferiu diversos golpes de machado em seu oponente")
-
