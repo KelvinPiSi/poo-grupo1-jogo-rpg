@@ -16,7 +16,6 @@ class Character :
         return f"{self.name} o {self.role} - Level {self.__level}:\n\t{self.__heartPoints}/{self.__maxHeartPoints}HP\n\t{self.__staminaPoints}/{self.__staminaPoints}SP\n\tAtaque: {self.__attack}\n\tDefesa: {self.__defense}"
 
     def takeDamage(self, damage):
-        print(f"{self.name} sentiu MUITA dor")
         if damage < self.__defense:
             self.__heartPoints -= 1
         else:
@@ -26,7 +25,6 @@ class Character :
         self.__heartPoints += value
 
     def attack(self, other):
-        print(f"{self.name} desferiu múltiplos socos")
         other.takeDamage(self.__attack)
         
     def levelUp(self):
