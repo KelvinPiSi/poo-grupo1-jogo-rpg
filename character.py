@@ -1,8 +1,9 @@
-from __future__ import annotation
+from __future__ import annotations
 
 class Character :
-    def __init__(self, nome, attack, defense, maxHeratPoints=100, maxStaminaPoints=100, ):
-        self.nome = nome
+    def __init__(self, name, attack, defense, maxHeratPoints=100, maxStaminaPoints=100, ):
+        self.name = name
+        self.role = "none"
         self.__heartPoints = maxHeratPoints
         self.__maxHeartPoints = maxHeratPoints
         self.__staminaPoints = maxStaminaPoints
@@ -10,6 +11,9 @@ class Character :
         self.__attack = attack
         self.__defense = defense
         self.__level = 1
+
+    def __str__(self) -> str:
+        return f"{self.name} o {self.role} - Level {self.__level}:\n\t{self.__heartPoints}/{self.__maxHeartPoints}HP\n\t{self.__staminaPoints}/{self.__staminaPoints}SP\n\tAtaque: {self.__attack}\n\tDefesa: {self.__defense}"
 
     def takeDamage(self, damage):
         self.__heartPoints -= damage - self.__defense
