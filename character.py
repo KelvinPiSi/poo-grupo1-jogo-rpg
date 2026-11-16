@@ -45,5 +45,9 @@ class Character :
         return self.__staminaPoints
 
     @property
+    def getAttack(self):
+        return self.__attack
+
+    @property
     def level(self):
         return self.__level
