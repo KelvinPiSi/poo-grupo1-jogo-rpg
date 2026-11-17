@@ -1,9 +1,9 @@
 from character import Character
+import time
 
 class Arqueiro(Character):
     """A classe arqueiro contém uma variável chamada qtdFlecha
-    Está variavel possibilita a classe de utilizar a função def attack
-        """
+    Está variavel possibilita a classe de utilizar a função def attack"""
     def __init__(self, name, attack, defense, maxHeartPoints=100, maxStaminaPoints=100, qtdFlecha = 0):
         super().__init__(name, attack, defense, maxHeartPoints, maxStaminaPoints)
 
@@ -17,25 +17,40 @@ class Arqueiro(Character):
     def atirar(self) -> bool:
         """Retorna se o personagem possui ou não flechas.
         Se possuir, printa (Atirou)
-        Se não possuir, printa (Não possui mais flechas) """
+        Se não possuir, questiona conceder mais"""
         if self.__qtdFlecha - 1 < 0:
-            print(f"{self.name} não possui mais flechas!")
-            return False
+            print(f"{self.name} não possui mais flechas! ", end="")
+
+            for i in range(3):
+                time.sleep(.5)
+                print(".", end="")
+
+            time.sleep(.5)
+
+            mais = int(input("\n\tVocê deseja conceder mais flechas? Se sim, quantas? (0 p/ nenhuma) "))
+
+            if not self.dar(mais):
+                return False
 
         self.__qtdFlecha -= 1
 
         print(f"{self.name} atirou!")
         return True
 
-    def dar(self, qtd):
+    def dar(self, qtd) -> bool:
         """Adiciona uma quantidade lida de flechas a variavel qtdFlechas do personagem"""
         if qtd < 1:
             print("Quantidade inválida")
-            return
+            return False
+
+        if qtd == 0:
+            print(f"{self.name} ficou sem flechas mesmo :(")
+            return False
 
         self.__qtdFlecha += qtd
 
         print(f"{self.name} recebeu {qtd} flechas!")
+        return True
 
     def tirar(self, qtd):
         """Retira uma quantidade de flechas do personagem"""

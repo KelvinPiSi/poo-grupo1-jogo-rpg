@@ -14,7 +14,7 @@ def choseCharacter() -> Character:
         case "1":
             return Guerreiro(name, 50, 25, 200, 100)
         case "2":
-            return Arqueiro(name, 30, 20, 100, 150, 100)
+            return Arqueiro(name, 30, 20, 100, 150, 3)
         case "3":
             return Mago(name, 25, 15, 80, 80, 120)
         case "_":
