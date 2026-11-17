@@ -3,6 +3,10 @@ from time import sleep
 from character import Character
 
 def battle(char1: Character, char2: Character):
+    """Inicia a batalha entre personagens escolhidos na main.py
+    Cada turno realiza uma sequência de ações determinadas
+    char 1 ataca primeiro, char 2 ataca após char 1.
+    Repete esse loop até que um deles morra, então declara o vencedor"""
     print(f"Vamos começar a batalha!\n\t{char1.name} vs {char2.name}:")
     sleep(5)
     turn = 1

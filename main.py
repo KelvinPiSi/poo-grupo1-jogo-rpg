@@ -5,6 +5,9 @@ from mago import Mago
 from battle import battle
 
 def choseCharacter() -> Character:
+    """Permite que o usuário escolha os dois personagens que irão lutar
+    Usuário escolhe o personagem digitando 1,2 ou 3.
+    O programa então retorna os valores inscritos dentro de cada case"""
     option = input("1 - Guerreiro\n2 - Arqueiro\n3 - Mago\n-> ")
     name = input("Qual será o nome dele? ")
     match option:
